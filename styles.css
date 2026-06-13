@@ -1,0 +1,313 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+
+:root {
+    /* Tema por defecto (Usuario) */
+    --color-primary: #2D8B71;
+    --color-secondary: #439B8F;
+    --color-light: #E2F0ED;
+    --color-superlight: #F1FDFB;
+}
+
+body.theme-verificador {
+    --color-primary: #2563EB;
+    --color-secondary: #3B82F6;
+    --color-light: #DBEAFE;
+    --color-superlight: #EFF6FF;
+}
+
+body.theme-empresa {
+    --color-primary: #0F172A;
+    --color-secondary: #334155;
+    --color-light: #E2E8F0;
+    --color-superlight: #F8FAFC;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: #e5e5e5;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+.mobile-container {
+    width: 100%;
+    max-width: 420px;
+    height: 100vh;
+    height: 100dvh;
+    background-color: #F8FAFC; 
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05); 
+}
+
+.scroll-content {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding-bottom: 100px;
+    background: linear-gradient(to bottom, #F8FAFC 0%, var(--color-light) 100%);
+}
+
+/* --- Estilos Compartidos --- */
+.header {
+    padding: 30px 24px 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.check-badge {
+    width: 24px;
+    height: 24px;
+    background-color: var(--color-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.check-badge svg { width: 14px; height: 14px; }
+
+h1 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1E293B;
+    letter-spacing: -0.5px;
+}
+
+.main-panel {
+    background-color: #FFFFFF;
+    border-radius: 30px 30px 0 0;
+    padding: 24px;
+    min-height: 500px;
+    box-shadow: 0 -4px 10px rgba(0,0,0,0.02);
+    position: relative;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 17px;
+    font-weight: 600;
+    color: #64748B;
+    margin-bottom: 20px;
+}
+
+/* --- Estilos Vista Buscar --- */
+.search-wrapper {
+    padding: 0 24px 24px;
+}
+
+.search-bar {
+    position: relative;
+    width: 100%;
+}
+
+.search-icon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #94A3B8;
+}
+
+.search-icon svg { width: 20px; height: 20px; }
+
+.search-input {
+    width: 100%;
+    padding: 16px 16px 16px 44px;
+    border-radius: 30px;
+    border: 1px solid #E2E8F0;
+    background-color: #FFFFFF;
+    font-size: 15px;
+    color: #334155;
+    outline: none;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    font-family: inherit;
+}
+
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.categories-slider {
+    display: flex;
+    overflow-x: auto;
+    gap: 12px;
+    padding-bottom: 8px; /* Espacio inferior para la sombra de las tarjetas */
+    margin-bottom: 24px;
+    
+    /* Ocultar scrollbar visual */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE y Edge */
+}
+
+/* Ocultar scrollbar en Chrome, Safari y WebKit */
+.categories-slider::-webkit-scrollbar {
+    display: none;
+}
+
+.category-card {
+    background-color: #FFFFFF;
+    border-radius: 16px;
+    padding: 16px 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #F1F5F9;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    cursor: pointer;
+    transition: transform 0.1s ease;
+    
+    /* Propiedades para mantener la forma dentro del carrusel */
+    min-width: 104px;
+    flex-shrink: 0;
+}
+
+.category-card:active { transform: scale(0.95); }
+
+.category-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1E293B;
+}
+
+.map-btn {
+    background-color: var(--color-secondary);
+    color: #FFFFFF;
+    width: 100%;
+    padding: 16px;
+    border-radius: 30px;
+    border: none;
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.1s ease;
+    margin-bottom: 24px;
+}
+
+.map-btn:active { transform: scale(0.97); }
+
+.map-area {
+    height: 220px;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 24px;
+    border: 1px solid #E2E8F0;
+    background-color: #f1f1f1; /* Placeholder para Mapa.jpg */
+    background-image: url('img/Mapa.jpg'); 
+    background-size: cover;
+    background-position: center;
+}
+
+.promo-card {
+    background: linear-gradient(to bottom, #FFFFFF, var(--color-superlight));
+    border-radius: 20px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid #E2E8F0;
+    position: relative;
+}
+
+.promo-text p { font-size: 14px; color: #334155; line-height: 1.4; }
+
+.promo-item-check {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    background-color: var(--color-primary);
+    color: white;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #FFFFFF;
+}
+.promo-item-check svg { width: 10px; height: 10px; }
+
+/* --- Estilos Vista Perfil --- */
+.profile-header-info {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.profile-avatar {
+    width: 80px;
+    height: 80px;
+    background-color: #E2E8F0;
+    border-radius: 50%;
+    margin: 0 auto 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #94A3B8;
+}
+
+.profile-btn {
+    background-color: #F8FAFC;
+    color: #1E293B;
+    border: 1px solid #E2E8F0;
+    box-shadow: none;
+    justify-content: flex-start;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+}
+
+.logout-btn {
+    background-color: #FEF2F2;
+    color: #DC2626;
+    border: 1px solid #FEE2E2;
+    margin-top: 10px;
+}
+
+/* --- Navegación Inferior --- */
+.bottom-nav {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 85px;
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding-bottom: 20px;
+    border-top: 1px solid #F1F5F9;
+    z-index: 20;
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    color: #94A3B8;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.nav-item.active { color: var(--color-primary); }
+.nav-icon svg { width: 24px; height: 24px; fill: currentColor; }
+.nav-text { font-size: 11px; font-weight: 600; }

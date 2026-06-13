@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Veristock - MVP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="mobile-container">
+        
+        <div class="scroll-content">
+            
+            <div id="vista-inicio">
+                <div class="header">
+                    <div class="check-badge" style="background-color: #2D8B71;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                    </div>
+                    <h1>Veristock</h1>
+                </div>
+
+                <div class="main-panel">
+                    <h2 class="section-title" style="text-align: left; margin-bottom: 8px; color: #1E293B; font-size: 20px;">¡Hola, Felipe! 👋</h2>
+                    <p style="color: #64748B; font-size: 14px; line-height: 1.5; margin-bottom: 24px;">Bienvenido a la red de verificación de stock de tu comuna piloto.</p>
+                    
+                    <div style="background: linear-gradient(135deg, #E2F0ED, #C2E7DD); border-radius: 20px; padding: 20px; margin-bottom: 24px; border: 1px solid #B2DFD4;">
+                        <h3 style="font-size: 15px; color: #1E293B; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 6px;">
+                            🌱 Impacto Comunitario
+                        </h3>
+                        <p style="font-size: 12px; color: #439B8F; font-weight: 500; margin-bottom: 12px;">Logros acumulados en tu zona de residencia</p>
+                        
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                            <div style="background: white; padding: 12px; border-radius: 14px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.02);">
+                                <span style="font-size: 22px; font-weight: 700; color: #2D8B71;">142 kg</span>
+                                <p style="font-size: 11px; color: #64748B; margin-top: 4px; font-weight: 600;">CO₂ Evitado hoy</p>
+                            </div>
+                            <div style="background: white; padding: 12px; border-radius: 14px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.02);">
+                                <span style="font-size: 22px; font-weight: 700; color: #2D8B71;">58</span>
+                                <p style="font-size: 11px; color: #64748B; margin-top: 4px; font-weight: 600;">Viajes ahorrados</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 style="font-size: 14px; color: #64748B; font-weight: 600; margin-bottom: 12px;">Accesos Rápidos</h3>
+                    
+                    <button class="map-btn" onclick="document.querySelectorAll('.nav-item')[1].click();" style="margin-bottom: 12px; background-color: #2D8B71; box-shadow: 0 6px 12px rgba(45, 139, 113, 0.2);">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                        Buscar Productos o Tiendas
+                    </button>
+                    
+                    <button class="map-btn" onclick="document.querySelectorAll('.nav-item')[2].click();" style="background-color: #439B8F; box-shadow: 0 6px 12px rgba(67, 155, 143, 0.2);">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                        Ver mi Perfil y Puntos
+                    </button>
+                </div>
+            </div>
+
+            <div id="vista-buscar" style="display: none;">
+                <div class="header">
+                    <div class="check-badge">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </div>
+                    <h1>¿Qué buscas?</h1>
+                </div>
+
+                <div class="search-wrapper">
+                    <div class="search-bar">
+                        <span class="search-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                        </span>
+                        <input type="text" class="search-input" placeholder="Ej: tornillos, pintura, herramientas...">
+                    </div>
+                </div>
+
+                <div class="main-panel">
+                    <h2 class="section-title">¿Dónde quieres buscar?</h2>
+                    
+                    <div class="categories-slider">
+                        <div class="category-card" onclick="alert('Tiendas')">
+                            <img src="img/Tienda.png" alt="Tiendas" style="width: 56px; height: 56px; object-fit: contain; margin-bottom: 12px;">
+                            <span class="category-name">Tiendas</span>
+                        </div>
+                        <div class="category-card" onclick="alert('Ferreterías')">
+                            <img src="img/Ferretería.png" alt="Ferreterías" style="width: 56px; height: 56px; object-fit: contain; margin-bottom: 12px;">
+                            <span class="category-name">Ferreterías</span>
+                        </div>
+                        <div class="category-card" onclick="alert('Almacenes')">
+                            <img src="img/Almacen.png" alt="Almacenes" style="width: 56px; height: 56px; object-fit: contain; margin-bottom: 12px;">
+                            <span class="category-name">Almacenes</span>
+                        </div>
+                        <div class="category-card green-point-card" onclick="alert('Puntos Verdes')">
+                            <div class="green-icon-wrapper">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2D8B71" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 10h4a2 2 0 0 1 0 4h-4z"></path><path d="m7 10 4-6 4 6H7Z"></path><path d="M7 10v10a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V10"></path></svg>
+                            </div>
+                            <span class="category-name" style="color: #2D8B71;">Puntos Verdes</span>
+                        </div>
+                    </div>
+
+                    <button class="map-btn" onclick="alert('Mapa')">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                        Ver en el mapa
+                    </button>
+
+                    <div class="map-area"></div>
+
+                    <div class="promo-card" onclick="alert('Verificador')">
+                        <img src="img/Verificador.png" alt="Verificador" style="width: 70px; height: auto; max-height: 80px; object-fit: contain; flex-shrink: 0;">
+                        <div class="promo-text">
+                            <p>Solicita <strong>verificadores</strong><br>independientes para confirmar <strong>stock</strong> en tiempo real.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="vista-perfil" style="display: none;">
+                <div class="header">
+                    <div class="check-badge" style="background-color: #94A3B8;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    </div>
+                    <h1>Mi Perfil</h1>
+                </div>
+
+                <div class="main-panel">
+                    <div class="profile-header-info">
+                        <div class="profile-avatar">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                        </div>
+                        <h2 style="font-size: 18px; color: #1E293B; font-weight: 700;">Felipe Rubilar</h2>
+                        
+                        <div style="margin-top: 8px; display: inline-flex; background: #F1F5F9; border-radius: 20px; padding: 4px;">
+                            <span style="font-size: 12px; font-weight: 600; padding: 4px 12px; background: #FFFFFF; border-radius: 16px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); color: var(--color-primary); cursor: pointer;" onclick="cambiarRol('usuario')">Usuario</span>
+                            <span style="font-size: 12px; font-weight: 600; padding: 4px 12px; color: #64748B; cursor: pointer;" onclick="cambiarRol('verificador')">Verificador</span>
+                            <span style="font-size: 12px; font-weight: 600; padding: 4px 12px; color: #64748B; cursor: pointer;" onclick="cambiarRol('empresa')">Empresa</span>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; gap: 10px; margin-bottom: 24px;">
+                        <div style="flex: 1; background: linear-gradient(135deg, #2D8B71, #439B8F); border-radius: 16px; padding: 16px; color: white;">
+                            <p style="font-size: 12px; opacity: 0.9;">Mis Puntos</p>
+                            <h3 style="font-size: 24px; font-weight: 700; margin: 4px 0;">350 <span style="font-size: 14px; font-weight: 400;">pts</span></h3>
+                            <button style="background: white; color: #2D8B71; border: none; border-radius: 12px; padding: 6px 12px; font-size: 12px; font-weight: 600; cursor: pointer; width: 100%; margin-top: 8px;">Canjear</button>
+                        </div>
+                        <div style="flex: 1; background: #F1FDFB; border: 1px solid #E2F0ED; border-radius: 16px; padding: 16px;">
+                            <p style="font-size: 12px; color: #64748B;">Mi Ahorro (Impacto)</p>
+                            <h3 style="font-size: 18px; font-weight: 700; color: #1E293B; margin: 4px 0;">12.5 <span style="font-size: 14px; font-weight: 400; color: #64748B;">km</span></h3>
+                            <p style="font-size: 11px; color: #439B8F; font-weight: 600; margin-top: 4px;">↓ 2.4 kg CO₂ evitado</p>
+                            <p style="font-size: 11px; color: #64748B; margin-top: 2px;">$1.200 en bencina</p>
+                        </div>
+                    </div>
+                    
+                    <h2 class="section-title" style="text-align: left; margin-bottom: 12px; font-size: 14px;">Mi Actividad y Beneficios</h2>
+                    <div style="display: flex; flex-direction: column;">
+                        <button class="map-btn profile-btn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2D8B71" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>
+                            Promociones y Cupones
+                        </button>
+
+                        <button class="map-btn profile-btn" onclick="document.getElementById('vista-perfil').style.display='none'; document.getElementById('vista-suscripciones').style.display='block';" style="display: flex; flex-direction: column; align-items: flex-start; padding: 12px 20px;">
+                            <div style="display: flex; align-items: center; width: 100%;">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2D8B71" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><rect x="2" y="4" width="20" height="16" rx="2" ry="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>
+                                <span style="font-weight: 600;">Suscripciones</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto;"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                            </div>
+                            <span style="font-size: 11px; color: #64748B; margin-left: 28px; margin-top: 4px; font-weight: 400;">Planes: Individual, Familiar y Estudiante</span>
+                        </button>
+
+                        <button class="map-btn profile-btn" onclick="document.getElementById('vista-perfil').style.display='none'; document.getElementById('vista-invitaciones').style.display='block';">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2D8B71" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                            Invita y Gana Recompensas
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto;"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                        </button>
+                    </div>
+
+                    <h2 class="section-title" style="text-align: left; margin-top: 16px; margin-bottom: 12px; font-size: 14px;">Comunicación y Soporte</h2>
+                    <div style="display: flex; flex-direction: column;">
+                        <button class="map-btn profile-btn" onclick="document.getElementById('vista-perfil').style.display='none'; document.getElementById('vista-mensajes').style.display='block';">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#439B8F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                            Mensajes con Proveedores
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto;"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                        </button>
+                        
+                        <button class="map-btn profile-btn" onclick="document.getElementById('vista-perfil').style.display='none'; document.getElementById('vista-reclamos').style.display='block';">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                            Reclamos y Observaciones
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto;"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                        </button>
+                    </div>
+
+                    <h2 class="section-title" style="text-align: left; margin-top: 16px; margin-bottom: 12px; font-size: 14px;">Ajustes de Cuenta</h2>
+                    <div style="display: flex; flex-direction: column;">
+                        <button class="map-btn profile-btn" onclick="document.getElementById('vista-perfil').style.display='none'; document.getElementById('vista-pagos').style.display='block';">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><rect x="2" y="5" width="20" height="14" rx="2" ry="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>
+                            Billetera y Métodos de Pago
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto;"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                        </button>
+
+                        <button class="map-btn profile-btn logout-btn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                            Cerrar Sesión
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VISTA VERIFICADOR -->
+            <div id="vista-verificador" style="display: none;">
+                <div class="header">
+                    <div class="check-badge" style="background-color: #94A3B8;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    </div>
+                    <h1>Mi Perfil</h1>
+                </div>
+
+                <div class="main-panel">
+                    <div class="profile-header-info">
+                        <div class="profile-avatar">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                        </div>
+                        <h2 style="font-size: 18px; color: #1E293B; font-weight: 700;">Felipe Rubilar</h2>
+                        
+                        <div style="margin-top: 8px; display: inline-flex; background: #F1F5F9; border-radius: 20px; padding: 4px;">
+                            <span style="font-size: 12px; font-weight: 600; padding: 4px 12px; color: #64748B; cursor: pointer;" onclick="cambiarRol('usuario')">Usuario</span>
+                            <span style="font-size: 12px; font-weight: 600; padding: 4px 12px; background: #FFFFFF; border-radius: 16px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); color: var(--color-primary); cursor: pointer;" onclick="cambiarRol('verificador')">Verificador</span>
+                            <span style="font-size: 12px; font-weight: 600; padding: 4px 12px; color: #64748B; cursor: pointer;" onclick="cambiarRol('empresa')">Empresa</span>
+                        </div>
+                    </div>
+
+                    <button class="map-btn" style="margin-bottom: 24px; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>
+                        Activar GPS y ver misiones
+                    </button>
+
+                    <div style="background: linear-gradient(135deg, var(--color-primary), var(--color-secondary)); border-radius: 16px; padding: 16px; color: white; margin-bottom: 24px;">
+                        <p style="font-size: 12px; opacity: 0.9;">Mis Puntos de Verificador</p>
+                        <h3 style="font-size: 28px; font-weight: 700; margin: 4px 0;">1,250 <span style="font-size: 14px; font-weight: 400;">pts</span></h3>
+                        <p style="font-size: 11px; opacity: 0.8;">Nivel: Experto (x1.2 bonificación)</p>
+                    </div>
+
+                    <h2 class="section-title" style="text-align: left; margin-bottom: 12px; font-size: 14px;">Misiones Recientes</h2>
+                    
+                    <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 16px; padding: 16px; margin-bottom: 12px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                            <span style="font-size: 13px; font-weight: 600; color: #1E293B;">Pintura Latex Blanca 1 Galón</span>
+                            <span style="font-size: 13px; font-weight: 700; color: var(--color-primary);">+50 pts</span>
+                        </div>
+                        <p style="font-size: 11px; color: #64748B;">Ferretería San Juan - Confirmación de existencia</p>
+                        <span style="font-size: 10px; color: #94A3B8; margin-top: 6px; display: block;">Hace 2 horas</span>
+                    </div>
+
+                    <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 16px; padding: 16px; margin-bottom: 12px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                            <span style="font-size: 13px; font-weight: 600; color: #1E293B;">Taladro Inalámbrico 12V</span>
+                            <span style="font-size: 13px; font-weight: 700; color: var(--color-primary);">+20 pts</span>
+                        </div>
+                        <p style="font-size: 11px; color: #64748B;">Sodimac Constructor - <span style="font-weight:600">Verificador Resignado</span> (No encontrado)</p>
+                        <span style="font-size: 10px; color: #94A3B8; margin-top: 6px; display: block;">Ayer</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VISTA EMPRESA -->
+            <div id="vista-empresa" style="display: none;">
+                <div class="header">
+                    <div class="check-badge" style="background-color: #94A3B8;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    </div>
+                    <h1>Mi Perfil</h1>
+                </div>
+
+                <div class="main-panel">
+                    <div class="profile-header-info">
+                        <div class="profile-avatar">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                        </div>
+                        <h2 style="font-size: 18px; color: #1E293B; font-weight: 700;">Ferretería San Juan</h2>
+                        
+                        <div style="margin-top: 8px; display: inline-flex; background: #F1F5F9; border-radius: 20px; padding: 4px;">
+                            <span style="font-size: 12px; font-weight: 600; padding: 4px 12px; color: #64748B; cursor: pointer;" onclick="cambiarRol('usuario')">Usuario</span>
+                            <span style="font-size: 12px; font-weight: 600; padding: 4px 12px; color: #64748B; cursor: pointer;" onclick="cambiarRol('verificador')">Verificador</span>
+                            <span style="font-size: 12px; font-weight: 600; padding: 4px 12px; background: #FFFFFF; border-radius: 16px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); color: var(--color-primary); cursor: pointer;" onclick="cambiarRol('empresa')">Empresa</span>
+                        </div>
+                    </div>
+
+                    <div style="background: #FEF2F2; border: 1px solid #FECACA; border-radius: 16px; padding: 16px; margin-bottom: 24px; display: flex; align-items: flex-start; gap: 12px;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#DC2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px;"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                        <div>
+                            <h3 style="font-size: 14px; font-weight: 700; color: #991B1B; margin-bottom: 4px;">¡Atención con tu visibilidad!</h3>
+                            <p style="font-size: 12px; color: #B91C1C; line-height: 1.4;">Recuerda que tu inventario debe actualizarse cada <strong>48 horas</strong>. Si no lo haces, tus productos se ocultarán automáticamente de las búsquedas.</p>
+                        </div>
+                    </div>
+
+                    <h2 class="section-title" style="text-align: left; margin-bottom: 12px; font-size: 14px;">Gestión de Inventario</h2>
+                    
+                    <button class="map-btn profile-btn" style="display: flex; justify-content: space-between; align-items: center; border-color: var(--color-primary); border-width: 2px;">
+                        <div style="display: flex; align-items: center;">
+                            <div style="background: var(--color-superlight); color: var(--color-primary); width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-right: 12px;">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                            </div>
+                            <div style="display: flex; flex-direction: column; align-items: flex-start;">
+                                <span style="font-weight: 600; font-size: 14px;">Actualizar Stock y Precios</span>
+                                <span style="font-size: 11px; color: #64748B;">Sincronización manual o por Excel</span>
+                            </div>
+                        </div>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </button>
+
+                    <h2 class="section-title" style="text-align: left; margin-top: 24px; margin-bottom: 12px; font-size: 14px;">Alertas de Vencimiento</h2>
+                    
+                    <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 16px; padding: 16px; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                            <div>
+                                <span style="font-size: 13px; font-weight: 600; color: #1E293B; display: block;">Cemento Melón Especial 25kg</span>
+                                <span style="font-size: 11px; color: #F59E0B; font-weight: 600;">Vence en 4 horas</span>
+                            </div>
+                        </div>
+                        <button style="background: var(--color-primary); color: white; border: none; border-radius: 8px; padding: 6px 12px; font-size: 11px; font-weight: 600; cursor: pointer;">Renovar</button>
+                    </div>
+                    
+                    <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 16px; padding: 16px; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                            <div>
+                                <span style="font-size: 13px; font-weight: 600; color: #1E293B; display: block;">Clavos de acero 2"</span>
+                                <span style="font-size: 11px; color: #F59E0B; font-weight: 600;">Vence en 6 horas</span>
+                            </div>
+                        </div>
+                        <button style="background: var(--color-primary); color: white; border: none; border-radius: 8px; padding: 6px 12px; font-size: 11px; font-weight: 600; cursor: pointer;">Renovar</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="vista-suscripciones" style="display: none;">
+                <div class="header" style="padding-top: 24px;">
+                    <button onclick="document.getElementById('vista-suscripciones').style.display='none'; document.getElementById('vista-perfil').style.display='block';" style="background: none; border: none; color: #1E293B; cursor: pointer; display: flex; align-items: center; padding: 8px;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                    </button>
+                    <h1 style="margin-left: 8px; font-size: 20px;">Planes de Suscripción</h1>
+                </div>
+
+                <div class="main-panel" style="background-color: #F8FAFC; padding-top: 10px;">
+                    <p style="text-align: center; color: #64748B; font-size: 14px; margin-bottom: 24px; padding: 0 10px;">Elige el plan que mejor se adapte a ti y verifica stock sin límites.</p>
+
+                    <div class="plan-card" style="background: #FFFFFF; border: 2px solid #2D8B71; border-radius: 20px; padding: 20px; margin-bottom: 16px; position: relative; box-shadow: 0 8px 16px rgba(45,139,113,0.1);">
+                        <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #2D8B71; color: white; padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: 700; letter-spacing: 0.5px;">MÁS POPULAR</div>
+                        <h3 style="font-size: 18px; color: #1E293B; font-weight: 700; margin-bottom: 4px;">Plan Individual</h3>
+                        <div style="display: flex; align-items: baseline; gap: 4px; margin-bottom: 8px;">
+                            <span style="font-size: 28px; font-weight: 800; color: #1E293B;">$1.000</span>
+                            <span style="font-size: 13px; color: #64748B; font-weight: 500;">/ semanal</span>
+                        </div>
+                        <p style="font-size: 13px; color: #439B8F; font-weight: 600; margin-bottom: 16px;">🎁 ¡Primer mes GRATIS de prueba!</p>
+                        <ul style="list-style: none; padding: 0; margin-bottom: 20px; font-size: 13px; color: #334155;">
+                            <li style="margin-bottom: 8px; display: flex; align-items: center; gap: 8px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2D8B71" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Verificaciones ilimitadas</li>
+                            <li style="margin-bottom: 8px; display: flex; align-items: center; gap: 8px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2D8B71" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Acceso a inventarios completos</li>
+                        </ul>
+                        <button style="width: 100%; background: #2D8B71; color: white; border: none; padding: 14px; border-radius: 12px; font-weight: 600; font-size: 14px; cursor: pointer;">Probar 1 mes gratis</button>
+                    </div>
+
+                    <div class="plan-card" style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 20px; padding: 20px; margin-bottom: 16px; box-shadow: 0 4px 6px rgba(0,0,0,0.02);">
+                        <h3 style="font-size: 18px; color: #1E293B; font-weight: 700; margin-bottom: 4px;">Plan Familiar</h3>
+                        <div style="display: flex; align-items: baseline; gap: 4px; margin-bottom: 8px;">
+                            <span style="font-size: 28px; font-weight: 800; color: #1E293B;">$2.500</span>
+                            <span style="font-size: 13px; color: #64748B; font-weight: 500;">/ semanal</span>
+                        </div>
+                        <p style="font-size: 13px; color: #64748B; margin-bottom: 16px;">Ideal para organizar las compras de casa.</p>
+                        <ul style="list-style: none; padding: 0; margin-bottom: 20px; font-size: 13px; color: #334155;">
+                            <li style="margin-bottom: 8px; display: flex; align-items: center; gap: 8px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2D8B71" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> <strong>Incluye hasta 5 personas</strong></li>
+                            <li style="margin-bottom: 8px; display: flex; align-items: center; gap: 8px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2D8B71" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Puntos transferibles entre la familia</li>
+                        </ul>
+                        <button style="width: 100%; background: #F1F5F9; color: #1E293B; border: 1px solid #E2E8F0; padding: 14px; border-radius: 12px; font-weight: 600; font-size: 14px; cursor: pointer;">Seleccionar Plan</button>
+                    </div>
+
+                    <div class="plan-card" style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 20px; padding: 20px; margin-bottom: 24px; box-shadow: 0 4px 6px rgba(0,0,0,0.02);">
+                        <h3 style="font-size: 18px; color: #1E293B; font-weight: 700; margin-bottom: 4px;">Plan Estudiante</h3>
+                        <div style="display: flex; align-items: baseline; gap: 4px; margin-bottom: 8px;">
+                            <span style="font-size: 28px; font-weight: 800; color: #1E293B;">$500</span>
+                            <span style="font-size: 13px; color: #64748B; font-weight: 500;">/ semanal</span>
+                        </div>
+                        <p style="font-size: 13px; color: #64748B; margin-bottom: 16px;">Verificación accesible para universitarios.</p>
+                        <ul style="list-style: none; padding: 0; margin-bottom: 20px; font-size: 13px; color: #334155;">
+                            <li style="margin-bottom: 8px; display: flex; align-items: center; gap: 8px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2D8B71" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Requiere validación de correo educacional</li>
+                            <li style="margin-bottom: 8px; display: flex; align-items: center; gap: 8px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2D8B71" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Todos los beneficios individuales</li>
+                        </ul>
+                        <button style="width: 100%; background: #F1F5F9; color: #1E293B; border: 1px solid #E2E8F0; padding: 14px; border-radius: 12px; font-weight: 600; font-size: 14px; cursor: pointer;">Validar Estudiante</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="vista-invitaciones" style="display: none;">
+                <div class="header" style="padding-top: 24px;">
+                    <button onclick="document.getElementById('vista-invitaciones').style.display='none'; document.getElementById('vista-perfil').style.display='block';" style="background: none; border: none; color: #1E293B; cursor: pointer; display: flex; align-items: center; padding: 8px;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                    </button>
+                    <h1 style="margin-left: 8px; font-size: 20px;">Invita y Gana</h1>
+                </div>
+
+                <div class="main-panel" style="background-color: #FFFFFF; padding-top: 15px;">
+                    <div style="text-align: center; margin-bottom: 20px;">
+                        <div style="width: 70px; height: 70px; background-color: #E2F0ED; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; color: #2D8B71;">
+                            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 12 20 22 4 22 4 12"></polyline><rect x="2" y="7" width="20" height="5"></rect><line x1="12" y1="22" x2="12" y2="7"></line><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path></svg>
+                        </div>
+                    </div>
+
+                    <h2 style="font-size: 18px; color: #1E293B; font-weight: 700; text-align: center; margin-bottom: 8px;">¡Comparte Veristock con tu red!</h2>
+                    <p style="text-align: center; color: #64748B; font-size: 13px; line-height: 1.5; margin-bottom: 24px; padding: 0 15px;">
+                        Invita a un amigo o familiar a unirse. Por cada persona que complete su nuevo registro usando tu enlace, <strong>tú ganarás 3 usos gratis</strong> y ellos recibirán beneficios de bienvenida.
+                    </p>
+
+                    <div style="background: #F1FDFB; border: 1px dashed #2D8B71; border-radius: 16px; padding: 16px; text-align: center; margin-bottom: 24px;">
+                        <span style="font-size: 12px; color: #439B8F; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">Tus Premios Vigentes</span>
+                        <h3 style="font-size: 26px; font-weight: 800; color: #2D8B71; margin-top: 4px;">6 <span style="font-size: 14px; font-weight: 500; color: #64748B;">usos gratuitos</span></h3>
+                        <p style="font-size: 11px; color: #64748B; margin-top: 4px;">Has invitado a 2 amigos con éxito</p>
+                    </div>
+
+                    <h3 style="font-size: 12px; color: #64748B; font-weight: 600; margin-bottom: 8px; text-transform: uppercase;">Tu código exclusivo</h3>
+                    <div style="display: flex; gap: 8px; margin-bottom: 24px;">
+                        <div style="flex: 1; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 12px; padding: 14px; font-family: monospace; font-size: 16px; font-weight: 700; color: #1E293B; text-align: center; letter-spacing: 1px;">
+                            VERIFELI55
+                        </div>
+                        <button onclick="alert('Código copiado al portapapeles')" style="background: #2D8B71; color: white; border: none; padding: 0 16px; border-radius: 12px; font-weight: 600; font-size: 13px; cursor: pointer;">
+                            Copiar
+                        </button>
+                    </div>
+
+                    <button class="map-btn" onclick="alert('Abriendo menú de compartir del teléfono...')" style="background-color: #439B8F; box-shadow: 0 6px 12px rgba(67, 155, 143, 0.2); margin-bottom: 12px;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px;"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+                        Enviar Enlace de Invitación
+                    </button>
+                </div>
+            </div>
+
+            <div id="vista-pagos" style="display: none;">
+                <div class="header" style="padding-top: 24px;">
+                    <button onclick="document.getElementById('vista-pagos').style.display='none'; document.getElementById('vista-perfil').style.display='block';" style="background: none; border: none; color: #1E293B; cursor: pointer; display: flex; align-items: center; padding: 8px;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                    </button>
+                    <h1 style="margin-left: 8px; font-size: 20px;">Billetera y Pagos</h1>
+                </div>
+
+                <div class="main-panel" style="background-color: #F8FAFC; padding-top: 15px;">
+                    <div style="background: linear-gradient(135deg, #1E293B, #334155); border-radius: 20px; padding: 24px; color: white; margin-bottom: 24px; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);">
+                        <p style="font-size: 13px; color: #94A3B8; margin-bottom: 4px;">Saldo Disponible</p>
+                        <h2 style="font-size: 32px; font-weight: 800; margin-bottom: 16px;">$4.500 <span style="font-size: 16px; font-weight: 500; color: #94A3B8;">CLP</span></h2>
+                        <button style="background: #2D8B71; color: white; border: none; padding: 12px 20px; border-radius: 12px; font-weight: 600; font-size: 14px; width: 100%; cursor: pointer; display: flex; justify-content: center; align-items: center; gap: 8px;">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                            Añadir Fondos
+                        </button>
+                        <p style="font-size: 11px; color: #64748B; text-align: center; margin-top: 12px;">Usa tu saldo para verificaciones rápidas ($400)</p>
+                    </div>
+
+                    <h3 style="font-size: 14px; color: #64748B; font-weight: 600; margin-bottom: 12px;">Métodos Guardados</h3>
+                    
+                    <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 16px; padding: 16px; margin-bottom: 12px; display: flex; align-items: center; justify-content: space-between;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="background: #F1F5F9; width: 40px; height: 28px; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-weight: 800; color: #1E3A8A; font-style: italic; font-size: 12px;">VISA</div>
+                            <div>
+                                <p style="font-size: 14px; font-weight: 600; color: #1E293B;">•••• 4242</p>
+                                <p style="font-size: 11px; color: #64748B;">Vence 09/27</p>
+                            </div>
+                        </div>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2D8B71" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </div>
+
+                    <h3 style="font-size: 14px; color: #64748B; font-weight: 600; margin-top: 24px; margin-bottom: 12px;">Añadir nuevo método</h3>
+                    
+                    <button class="map-btn profile-btn" style="background: #FFFFFF; border: 1px dashed #CBD5E1; margin-bottom: 8px; box-shadow: none;" onclick="alert('Abriendo pasarela segura para nueva tarjeta...')">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2" style="margin-right: 8px;"><rect x="2" y="5" width="20" height="14" rx="2" ry="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>
+                        <span style="color: #475569;">Tarjeta de Crédito / Débito</span>
+                    </button>
+
+                    <button class="map-btn profile-btn" style="background: #FFFFFF; border: 1px dashed #CBD5E1; box-shadow: none;" onclick="alert('Redirigiendo a PayPal...')">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00457C" stroke-width="2" style="margin-right: 8px;"><path d="M7.144 19.532l1.049-5.751c.11-.606.691-1.002 1.304-.959h2.82c3.55 0 5.421-1.639 5.922-4.996.155-1.04.053-1.921-.307-2.645-.631-1.265-2.029-1.906-4.195-1.906H9.138c-.544 0-1.01.405-1.106.942L5.27 19.532h1.874z"></path></svg>
+                        <span style="color: #475569;">Conectar PayPal</span>
+                    </button>
+                </div>
+            </div>
+
+            <div id="vista-mensajes" style="display: none;">
+                <div class="header" style="padding-top: 24px;">
+                    <button onclick="document.getElementById('vista-mensajes').style.display='none'; document.getElementById('vista-perfil').style.display='block';" style="background: none; border: none; color: #1E293B; cursor: pointer; display: flex; align-items: center; padding: 8px;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                    </button>
+                    <h1 style="margin-left: 8px; font-size: 20px;">Mensajes</h1>
+                </div>
+
+                <div class="main-panel" style="background-color: #F8FAFC; padding-top: 15px;">
+                    <p style="font-size: 13px; color: #64748B; margin-bottom: 20px; padding: 0 10px;">Comunícate directamente con los negocios para confirmar detalles de tu verificación.</p>
+                    
+                    <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 16px; padding: 16px; margin-bottom: 12px; display: flex; gap: 12px; cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.02);" onclick="alert('Abriendo chat con Ferretería El Maestro...')">
+                        <div style="width: 48px; height: 48px; background-color: #E2F0ED; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #2D8B71; flex-shrink: 0;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+                        </div>
+                        <div style="flex: 1;">
+                            <div style="display: flex; justify-content: space-between; align-items: baseline;">
+                                <h4 style="font-size: 15px; font-weight: 700; color: #1E293B; margin-bottom: 2px;">Ferretería El Maestro</h4>
+                                <span style="font-size: 11px; color: #94A3B8;">10:42</span>
+                            </div>
+                            <p style="font-size: 11px; color: #2D8B71; font-weight: 600; margin-bottom: 4px;">Consulta: Taladro percutor</p>
+                            <p style="font-size: 13px; color: #64748B; line-height: 1.4; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical;">Hola, sí tenemos en stock. Cerramos a las 19:00 hrs. Te esperamos.</p>
+                        </div>
+                    </div>
+
+                    <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 16px; padding: 16px; display: flex; gap: 12px; cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.02);" onclick="alert('Abriendo chat con Almacén Doña Rosa...')">
+                        <div style="width: 48px; height: 48px; background-color: #F1F5F9; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #64748B; flex-shrink: 0;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+                        </div>
+                        <div style="flex: 1;">
+                            <div style="display: flex; justify-content: space-between; align-items: baseline;">
+                                <h4 style="font-size: 15px; font-weight: 700; color: #1E293B; margin-bottom: 2px;">Almacén Doña Rosa</h4>
+                                <span style="font-size: 11px; color: #94A3B8;">Ayer</span>
+                            </div>
+                            <p style="font-size: 11px; color: #64748B; font-weight: 600; margin-bottom: 4px;">Consulta: Pintura blanca 1gl</p>
+                            <p style="font-size: 13px; color: #64748B; line-height: 1.4; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical;">Nos llega nuevo pedido el martes por la mañana.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="vista-reclamos" style="display: none;">
+                <div class="header" style="padding-top: 24px;">
+                    <button onclick="document.getElementById('vista-reclamos').style.display='none'; document.getElementById('vista-perfil').style.display='block';" style="background: none; border: none; color: #1E293B; cursor: pointer; display: flex; align-items: center; padding: 8px;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                    </button>
+                    <h1 style="margin-left: 8px; font-size: 20px;">Soporte Post-Servicio</h1>
+                </div>
+
+                <div class="main-panel" style="background-color: #F8FAFC; padding-top: 15px;">
+                    <p style="font-size: 13px; color: #64748B; margin-bottom: 20px; padding: 0 10px;">Evalúa tu experiencia o reporta un problema con un servicio reciente.</p>
+
+                    <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 20px; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.02);">
+                        <label style="font-size: 12px; font-weight: 600; color: #64748B; margin-bottom: 8px; display: block;">Servicio a reportar</label>
+                        <select style="width: 100%; padding: 12px; border-radius: 12px; border: 1px solid #CBD5E1; font-family: inherit; font-size: 14px; color: #1E293B; margin-bottom: 16px; background-color: #F8FAFC;">
+                            <option>Verificación: Ferretería El Maestro (Hoy)</option>
+                            <option>Compra: Almacén Doña Rosa (Hace 2 días)</option>
+                            <option>Soporte general Veristock</option>
+                        </select>
+
+                        <label style="font-size: 12px; font-weight: 600; color: #64748B; margin-bottom: 8px; display: block;">Motivo</label>
+                        <select style="width: 100%; padding: 12px; border-radius: 12px; border: 1px solid #CBD5E1; font-family: inherit; font-size: 14px; color: #1E293B; margin-bottom: 16px; background-color: #F8FAFC;">
+                            <option>Información de stock incorrecta</option>
+                            <option>El negocio estaba cerrado</option>
+                            <option>Felicitación / Sugerencia de mejora</option>
+                            <option>Problema con el cobro ($400)</option>
+                        </select>
+
+                        <label style="font-size: 12px; font-weight: 600; color: #64748B; margin-bottom: 8px; display: block;">Cuéntanos más detalles</label>
+                        <textarea rows="4" placeholder="Ej: Fui al local y no tenían el producto que me confirmaron..." style="width: 100%; padding: 12px; border-radius: 12px; border: 1px solid #CBD5E1; font-family: inherit; font-size: 14px; color: #1E293B; margin-bottom: 20px; background-color: #F8FAFC; resize: none;"></textarea>
+
+                        <button style="background: #2D8B71; color: white; border: none; padding: 14px; border-radius: 12px; font-weight: 600; font-size: 14px; width: 100%; cursor: pointer;" onclick="alert('Tu reporte ha sido enviado. El equipo de Veristock lo analizará para asegurar la calidad de la red.')">
+                            Enviar Reporte
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div> <nav class="bottom-nav">
+            <div class="nav-item active" onclick="setActive(this, 'vista-inicio')">
+                <div class="nav-icon">
+                    <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+                </div>
+                <span class="nav-text">Inicio</span>
+            </div>
+            <div class="nav-item" onclick="setActive(this, 'vista-buscar')">
+                <div class="nav-icon">
+                    <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                </div>
+                <span class="nav-text">Buscar</span>
+            </div>
+            <div class="nav-item" onclick="abrirPerfil(this)">
+                <div class="nav-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                </div>
+                <span class="nav-text">Perfil</span>
+            </div>
+        </nav>
+        
+    </div> <script src="app.js"></script>
+</body>
+</html>
