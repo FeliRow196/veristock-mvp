@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Veristock - MVP</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -65,12 +66,15 @@
                     <h1>¿Qué buscas?</h1>
                 </div>
 
-                <div class="search-wrapper">
+                <div class="search-wrapper" style="position: relative;">
                     <div class="search-bar">
                         <span class="search-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
                         </span>
-                        <input type="text" class="search-input" placeholder="Ej: tornillos, pintura, herramientas...">
+                        <input type="text" id="input-busqueda" class="search-input" placeholder="Ej: tornillos, cemento, zapatos..." oninput="buscarProducto(this.value)">
+                    </div>
+                    <div id="resultados-busqueda" style="display: none; position: absolute; top: 100%; left: 0; right: 0; background: white; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); margin-top: 8px; z-index: 1000; max-height: 250px; overflow-y: auto; border: 1px solid #E2E8F0;">
+                        <!-- JS fills this -->
                     </div>
                 </div>
 
@@ -78,19 +82,19 @@
                     <h2 class="section-title">¿Dónde quieres buscar?</h2>
                     
                     <div class="categories-slider">
-                        <div class="category-card" onclick="alert('Tiendas')">
+                        <div class="category-card" onclick="filtrarMapa('tiendas')">
                             <img src="img/Tienda.png" alt="Tiendas" style="width: 56px; height: 56px; object-fit: contain; margin-bottom: 12px;">
                             <span class="category-name">Tiendas</span>
                         </div>
-                        <div class="category-card" onclick="alert('Ferreterías')">
+                        <div class="category-card" onclick="filtrarMapa('ferreterias')">
                             <img src="img/Ferretería.png" alt="Ferreterías" style="width: 56px; height: 56px; object-fit: contain; margin-bottom: 12px;">
                             <span class="category-name">Ferreterías</span>
                         </div>
-                        <div class="category-card" onclick="alert('Almacenes')">
+                        <div class="category-card" onclick="filtrarMapa('almacenes')">
                             <img src="img/Almacen.png" alt="Almacenes" style="width: 56px; height: 56px; object-fit: contain; margin-bottom: 12px;">
                             <span class="category-name">Almacenes</span>
                         </div>
-                        <div class="category-card green-point-card" onclick="alert('Puntos Verdes')">
+                        <div class="category-card green-point-card" onclick="filtrarMapa('puntos_verdes')">
                             <div class="green-icon-wrapper">
                                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2D8B71" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 10h4a2 2 0 0 1 0 4h-4z"></path><path d="m7 10 4-6 4 6H7Z"></path><path d="M7 10v10a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V10"></path></svg>
                             </div>
@@ -98,12 +102,9 @@
                         </div>
                     </div>
 
-                    <button class="map-btn" onclick="alert('Mapa')">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                        Ver en el mapa
-                    </button>
-
-                    <div class="map-area"></div>
+                    <div class="map-area" style="height: 350px;">
+                        <div id="map-concepcion" style="width: 100%; height: 100%; z-index: 1;"></div>
+                    </div>
 
                     <div class="promo-card" onclick="alert('Verificador')">
                         <img src="img/Verificador.png" alt="Verificador" style="width: 70px; height: auto; max-height: 80px; object-fit: contain; flex-shrink: 0;">
@@ -576,6 +577,25 @@
             </div>
         </nav>
         
-    </div> <script src="app.js"></script>
+    </div>
+    
+    <!-- Modal de Stock -->
+    <div id="modal-stock" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 1000; justify-content: center; align-items: flex-end;">
+        <div style="background: white; width: 100%; max-width: 480px; max-height: 80vh; border-radius: 24px 24px 0 0; padding: 24px; display: flex; flex-direction: column; animation: slideUp 0.3s ease-out;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                <h3 id="modal-stock-title" style="font-size: 20px; font-weight: 700; color: #1E293B; margin: 0;">Stock Disponible</h3>
+                <button onclick="cerrarStock()" style="background: none; border: none; cursor: pointer; color: #64748B;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+            </div>
+            <div id="modal-stock-list" style="overflow-y: auto; flex: 1; display: flex; flex-direction: column; gap: 12px;">
+                <!-- Se llena por JS -->
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="data.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
